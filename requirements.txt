@@ -1,3 +1,8 @@
 PyMuPDF>=1.23.0
 EbookLib>=0.18
 Pillow>=10.0.0
+PyYAML>=6.0
+pytest>=7.0
+
+# Optional: OCR support for scanned PDFs
+# pytesseract>=0.3.10

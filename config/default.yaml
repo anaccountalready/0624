@@ -1,0 +1,29 @@
+output:
+  default_dir: ""
+  overwrite_mode: overwrite
+  formats:
+    - epub
+    - txt
+
+conversion:
+  max_workers: 4
+  preserve_layout: true
+  detect_chapters: true
+  image_quality: 90
+  min_image_size: 10
+
+ocr:
+  enabled: false
+  language: eng
+  dpi: 300
+
+ui:
+  theme: blue
+  language: zh
+  font_family: "Microsoft YaHei"
+  font_size: 11
+  log_level: INFO
+
+preview:
+  max_image_width: 500
+  temp_dir_cleanup: true

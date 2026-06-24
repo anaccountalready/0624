@@ -196,18 +196,19 @@ class TaskManager:
     
     def execute(self, callback=None):
         self.callback = callback
-        
+
         if not self.tasks:
             logger.warning("没有任务需要执行")
             return
-        
+
         self.executor = concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers)
-        
+
         for task in self.tasks:
-            self.executor.submit(self.convert_single, task)
-        
+            future = self.executor.submit(self.convert_single, task)
+            logger.info(f"提交任务到线程池: {os.path.basename(task.pdf_path)} (future={id(future)})")
+
         self.executor.shutdown(wait=False)
-        logger.info("任务执行开始")
+        logger.info(f"任务执行开始: 共 {len(self.tasks)} 个任务")
     
     def wait_completion(self):
         if self.executor:

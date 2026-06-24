@@ -277,4 +277,5 @@ class PDFExtractor:
     def close(self):
         if self.doc:
             self.doc.close()
+            self.doc = None
             logger.info("PDF文件已关闭")
